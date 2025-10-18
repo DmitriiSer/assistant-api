@@ -11,6 +11,9 @@ export type PerplexicaMessage = {
   content: string;
 };
 
+// History format matches Perplexica's official API: array of tuples
+export type PerplexicaHistoryEntry = ["human" | "assistant", string];
+
 export type OptimizationMode = "speed" | "balanced";
 
 export type ModelProvider = "ollama";
@@ -32,7 +35,7 @@ export type PerplexicaSearchRequest = {
   chatModel?: ModelConfig;
   embeddingModel?: ModelConfig;
   optimizationMode?: OptimizationMode;
-  history?: PerplexicaMessage[];
+  history?: PerplexicaHistoryEntry[];
   systemInstructions?: string;
   stream?: boolean;
 };
