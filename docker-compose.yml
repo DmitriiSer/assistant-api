@@ -1,0 +1,10 @@
+services:
+  assistant-api:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - PORT=3000
+      - PERPLEXICA_URL=${PERPLEXICA_URL:-http://localhost:3000}
+      - SYSTEM_INSTRUCTIONS=${SYSTEM_INSTRUCTIONS:-}
